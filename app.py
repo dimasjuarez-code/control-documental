@@ -9,6 +9,9 @@ st.set_page_config(page_title='Buscador documental', page_icon=':material/search
 st.badge('Biblioteca pública', icon=':material/public:', color='violet')
 st.title('Tu centro documental')
 st.caption('Consulta documentos, encuentra códigos y descarga sus archivos originales.')
+with st.container(horizontal=True, horizontal_alignment='right'):
+    st.link_button('Abrir gestor de turnos', 'https://gestor-turnos-gas-atacama.streamlit.app/', type='primary', icon=':material/calendar_month:', help='Abre la gestión de turnos en otra pestaña.', key='turnos_link')
+
 try:
     store = CloudStore(st.secrets['SUPABASE_URL'], st.secrets['SUPABASE_PUBLISHABLE_KEY'])
 except Exception:
